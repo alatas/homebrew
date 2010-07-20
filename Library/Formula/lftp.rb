@@ -12,6 +12,7 @@ class Lftp <Formula
   def install
     # Bus error
     ENV.no_optimization if MACOS_VERSION == 10.5
+    ENV["PKG_CONFIG_PATH"] = "/usr/local/Cellar/gnutls/2.8.5/lib/pkgconfig:" + ENV["PKG_CONFIG_PATH"]
 
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make install"
