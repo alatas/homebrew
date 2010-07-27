@@ -16,6 +16,8 @@ class Qcachegrind <Formula
 
   def patches
       {
+          # This patch will fix the file selection dialog which doesn't
+          # let you select anything!
           :p0 => 
           "http://gist.github.com/raw/491405/file-dialog-filters.diff"
       }
