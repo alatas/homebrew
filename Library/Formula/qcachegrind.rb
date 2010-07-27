@@ -11,7 +11,8 @@ class Qcachegrind <Formula
   def install
     system "qmake"
     system "make"
-    bin.install('qcachegrind/qcachegrind.app/Contents/MacOS/qcachegrind')
+    cp_r 'qcachegrind/qcachegrind.app', prefix
+    bin.install 'qcachegrind/qcachegrind.app/Contents/MacOS/qcachegrind'
   end
 
   def patches
