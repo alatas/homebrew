@@ -19,7 +19,8 @@ class Vsftpd <Formula
 
         sbin.install('vsftpd')
         man8.install('vsftpd.8')
-        man5.install('vsftpd.conf.5');
+        man5.install('vsftpd.conf.5')
+        HOMEBREW_PREFIX+'share/empty'.mkdir_p
     end
 
     def patches
