@@ -172,6 +172,7 @@ class Php <Formula
     system "make install"
 
     system "cp ./php.ini-production #{prefix}/etc/php.ini"
+    system "echo 'include_path = \"/usr/local/lib/php\"' >> #{prefix}/etc/php.ini"
 
     if ARGV.include? '--with-fpm'
       (prefix+'org.php.php-fpm.plist').write startup_plist
