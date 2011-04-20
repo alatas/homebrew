@@ -16,8 +16,6 @@ class ProggyFonts < Formula
 
   def install
     prefix.install Dir["*"]
-    ohai "Installing fonts to ~/Library/Fonts"
-    system "ln -sf #{prefix+"ProggyClean.ttf"} ~/Library/Fonts"
-    system "ln -sf #{prefix+"ProggyCleanCE.ttf"} ~/Library/Fonts"
+    system "cp -vf #{prefix+"*.ttf"} ~/Library/Fonts"
   end
 end
