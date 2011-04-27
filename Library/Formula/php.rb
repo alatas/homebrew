@@ -171,6 +171,7 @@ class Php <Formula
     system "make"
     system "make install"
 
+    system "mkdir -p #{prefix}/etc"
     system "cp ./php.ini-production #{prefix}/etc/php.ini"
     system "echo 'include_path = \"/usr/local/lib/php\"' >> #{prefix}/etc/php.ini"
 
