@@ -37,7 +37,7 @@ class Php <Formula
   if ARGV.include? '--with-readline'
     depends_on 'readline'
   end
-  
+
   def options
    [
      ['--with-mysql', 'Include MySQL support'],
@@ -53,7 +53,7 @@ class Php <Formula
   def patches
    DATA
   end
-  
+
   def configure_args
     args = [
       "--prefix=#{prefix}",
@@ -146,14 +146,14 @@ class Php <Formula
       args.push "--enable-intl"
       args.push "--with-icu-dir=#{Formula.factory('icu4c').prefix}"
     end
-    
+
     if ARGV.include? '--with-readline'
       args.push "--with-readline=#{Formula.factory('readline').prefix}"
     end
 
     return args
   end
-  
+
   def install
     # Because for icu4c, we must link with c++ when building with intl extension
     ENV.append 'LDFLAGS', '-lstdc++' if ARGV.include? '--with-intl'
@@ -167,7 +167,7 @@ class Php <Formula
         "INSTALL_IT = $(mkinstalldirs) '$(INSTALL_ROOT)/usr/libexec/apache2' && $(mkinstalldirs) '$(INSTALL_ROOT)/private/etc/apache2' && /usr/sbin/apxs -S LIBEXECDIR='$(INSTALL_ROOT)/usr/libexec/apache2' -S SYSCONFDIR='$(INSTALL_ROOT)/private/etc/apache2' -i -a -n php5 libs/libphp5.so",
         "INSTALL_IT = $(mkinstalldirs) '#{prefix}/libexec/apache2' && $(mkinstalldirs) '$(INSTALL_ROOT)/private/etc/apache2' && /usr/sbin/apxs -S LIBEXECDIR='#{prefix}/libexec/apache2' -S SYSCONFDIR='$(INSTALL_ROOT)/private/etc/apache2' -i -a -n php5 libs/libphp5.so"
     end
-    
+
     system "make"
     system "make install"
 
@@ -185,9 +185,9 @@ class Php <Formula
 
  def caveats; <<-EOS
    For 10.5 and Apache:
-    Apache needs to run in 32-bit mode. You can either force Apache to start 
+    Apache needs to run in 32-bit mode. You can either force Apache to start
     in 32-bit mode or you can thin the Apache executable.
-   
+
    To enable PHP in Apache add the following to httpd.conf and restart Apache:
     LoadModule php5_module    #{prefix}/libexec/apache2/libphp5.so
 
@@ -215,23 +215,23 @@ class Php <Formula
 end
 
 __END__
-diff -Naur php-5.3.2/ext/tidy/tidy.c php/ext/tidy/tidy.c 
+diff -Naur php-5.3.2/ext/tidy/tidy.c php/ext/tidy/tidy.c
 --- php-5.3.2/ext/tidy/tidy.c	2010-02-12 04:36:40.000000000 +1100
 +++ php/ext/tidy/tidy.c	2010-05-23 19:49:47.000000000 +1000
 @@ -22,6 +22,8 @@
  #include "config.h"
  #endif
- 
+
 +#include "tidy.h"
 +
  #include "php.h"
  #include "php_tidy.h"
- 
+
 @@ -31,7 +33,6 @@
  #include "ext/standard/info.h"
  #include "safe_mode.h"
- 
+
 -#include "tidy.h"
  #include "buffio.h"
- 
+
  /* compatibility with older versions of libtidy */
