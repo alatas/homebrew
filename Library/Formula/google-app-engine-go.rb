@@ -5,8 +5,6 @@ class GoogleAppEngineGo < Formula
   homepage 'http://code.google.com/appengine/downloads.html#Google_App_Engine_SDK_for_Go'
   md5 '7abaf8f6fc51888a18bbf24d88f515ab'
 
-  # depends_on 'cmake'
-
   def install
       cd '..'
       share.install 'google_appengine' => name
