@@ -1,9 +1,9 @@
 require 'formula'
 
 class Lftp < Formula
-  url 'http://ftp.yars.free.net/pub/source/lftp/lftp-4.2.2.tar.bz2'
+  url 'http://ftp.yars.free.net/pub/source/lftp/lftp-4.3.1.tar.bz2'
   homepage 'http://lftp.yar.ru/'
-  md5 '801d90de9def7fc0f88817bcc71295b7'
+  md5 'ea45acfb47b5590d4675c50dc0c6e13c'
 
   depends_on 'pkg-config' => :build
   depends_on 'readline'
@@ -14,7 +14,7 @@ class Lftp < Formula
     ENV.no_optimization if MACOS_VERSION == 10.5
     ENV["PKG_CONFIG_PATH"] = "/usr/local/Cellar/gnutls/2.8.5/lib/pkgconfig:" + ENV["PKG_CONFIG_PATH"]
 
-    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make install"
   end
 end
