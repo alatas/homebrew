@@ -2,19 +2,19 @@ require 'formula'
 require 'hardware'
 
 class Qt < Formula
-  url 'http://get.qt.nokia.com/qt/source/qt-everywhere-opensource-src-4.7.3.tar.gz'
-  md5 '49b96eefb1224cc529af6fe5608654fe'
+  url 'http://get.qt.nokia.com/qt/source/qt-everywhere-opensource-src-4.7.4.tar.gz'
+  md5 'ddf7d83f912cf1283aa066368464fa22'
   homepage 'http://qt.nokia.com/'
-  bottle 'https://downloads.sourceforge.net/project/machomebrew/Bottles/qt-4.7.3-bottle.tar.gz'
-  bottle_sha1 '6ab865b92db92cf2c49a332010f99566178d25cf'
+  bottle 'https://downloads.sf.net/project/machomebrew/Bottles/qt-4.7.4-bottle.tar.gz'
+  bottle_sha1 '3195cddb76c0d13b4500dc75cc55f20f00c10ef1'
 
   head 'git://gitorious.org/qt/qt.git', :branch => 'master'
 
   def patches
-    # Fixes compilation on 10.7 or with llvm-gcc
-    # Bug report: https://bugreports.qt.nokia.com/browse/QTBUG-20496
-    # Merge request: https://qt.gitorious.org/qt/qt/merge_requests/1304
-    "https://qt.gitorious.org/+kdab-developers/qt/kdab-for-upstream/commit/1537d131e59e4fb43001299cfbd747c521fa1888?format=patch"
+    [
+      # Stop complaining about using Lion
+      "https://qt.gitorious.org/qt/qt/commit/1766bbdb53e1e20a1bbfb523bbbbe38ea7ab7b3d?format=patch"
+    ]
   end
 
   def options
