@@ -26,6 +26,10 @@ class SquashfsTools < Formula
     # your pull request!
     system "false"
   end
+
+  def caveats
+      "I just hacked the code until it compiled. Not my fault if it eats your children. God speed."
+  end
 end
 
 
