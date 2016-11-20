@@ -3,7 +3,7 @@ require 'formula'
 class Cramfs < Formula
   url 'http://downloads.sourceforge.net/project/cramfs/cramfs/1.1/cramfs-1.1.tar.gz'
   homepage 'http://cramfs.sourceforge.net/'
-  md5 'd3912b9f7bf745fbfea68f6a9b9de30f'
+  sha256 '133caca2c4e7c64106555154ee0ff693f5cf5beb9421ce2eb86baee997d22368'
 
   def install
     system "make"
