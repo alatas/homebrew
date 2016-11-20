@@ -20,6 +20,6 @@ class Cramfs < Formula
   end
 
   def patches
-      "https://raw.github.com/gist/1207301/fb4bb28e4f26d35bab81bb8f64ef0efd566e8778/cramfs-osx.diff"
+      "https://gist.githubusercontent.com/dtjm/1207301/raw/e7283405867d9ef75fba9a1c57616e681b921872/cramfs-osx.diff"
   end
 end
